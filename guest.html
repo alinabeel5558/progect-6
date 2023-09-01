@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Page</title>
+</head>
+<body>
+    <!-- Common Header (logo and language switch) -->
+    <header>
+        <a href="index.html"><img src="E:\progect 4\imgs/logo.png" alt="Logo"></a>
+    </header>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Guest Page -->
+        <div id="guest" class="page">
+            <h1>Welcome as a Guest</h1>
+            
+            <!-- Guest Form -->
+            <form action="profile.html" method="GET">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required><br><br>
+                
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required><br><br>
+
+                <button type="submit">Continue as Guest</button>
+            </form>
+
+            <!-- Options -->
+            <p>
+                <a href="index.html">Have an account? Log In</a> | 
+                <a href="New-Account.html">Create a New Account</a>
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <a href="?lang=en">English</a> | <a href="?lang=ar">العربية</a>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Logo Animation
+            const logo = document.querySelector('header img');
+            logo.addEventListener('mouseenter', function() {
+                logo.classList.add('logo-animation');
+                logo.style.transform = 'rotate(360deg)';
+            });
+    
+            logo.addEventListener('mouseleave', function() {
+                logo.classList.remove('logo-animation');
+                logo.style.transform = 'rotate(0deg)';
+            });
+    
+            // Form Animation (with bounce animation)
+            const guestForm = document.querySelector('#guest form');
+            guestForm.addEventListener('mouseenter', function() {
+                guestForm.classList.add('form-animation');
+                guestForm.style.transform = 'scale(1.05)';
+            });
+    
+            guestForm.addEventListener('mouseleave', function() {
+                guestForm.classList.remove('form-animation');
+                guestForm.style.transform = 'scale(1)';
+            });
+    
+            // Color Change for Links
+            const links = document.querySelectorAll('a');
+            links.forEach(function(link) {
+                link.addEventListener('mouseenter', function() {
+                    const randomColor = getRandomColor();
+                    link.style.color = randomColor; // Change text color on hover
+                });
+    
+                link.addEventListener('mouseleave', function() {
+                    link.style.color = ''; // Reset text color
+                });
+            });
+    
+            // Function to get a random color
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+</body>
+</html>

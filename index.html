@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleAzur</title>
+    
+    <!-- CSS for Animations -->
+    <style>
+        /* Add this to your styles.css or within a <style> tag in your HTML */
+        .logo-animation {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .form-animation {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Common Header (logo and language switch) -->
+    <header>
+        <img src="E:\progect 4\imgs/logo.png" alt="Logo">
+    </header>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Home Page -->
+        <div>
+            <h1 class="large-text"> TeleAzur </h1> </div>
+        <div id="home" class="page">
+            <h3>Your social world, Share your moments with TeleAzur.</h3>
+            <form action="login.html" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <button type="submit">Login</button>
+            </form>
+            <p>
+                <a href="New-Account.html">Create a New Account</a> | 
+                <a href="guest.html">Open as a Guest</a>
+            </p>
+        </div>
+    </div>
+    <footer> <div>
+        <a href="?lang=en">English</a> | <a href="?lang=ar">العربية</a>
+    </div>
+</footer>
+
+<!-- JavaScript for Animations -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Logo Animation
+        const logo = document.querySelector('header img');
+        logo.addEventListener('mouseenter', function() {
+            logo.classList.add('logo-animation');
+            logo.style.transform = 'rotate(360deg)';
+        });
+
+        logo.addEventListener('mouseleave', function() {
+            logo.classList.remove('logo-animation');
+            logo.style.transform = 'rotate(0deg)';
+        });
+
+        // TeleAzur Text Animation
+        const TeleAzurText = document.querySelector('.large-text');
+        TeleAzurText.addEventListener('mouseenter', function() {
+            TeleAzurText.style.color = 'blue'; // Change text color on hover
+        });
+
+        TeleAzurText.addEventListener('mouseleave', function() {
+            TeleAzurText.style.color = ''; // Reset text color
+        });
+
+        // Form Animation (with bounce animation)
+        const loginForm = document.querySelector('form');
+        loginForm.addEventListener('mouseenter', function() {
+            loginForm.classList.add('form-animation');
+            loginForm.style.transform = 'scale(1.05)';
+        });
+
+        loginForm.addEventListener('mouseleave', function() {
+            loginForm.classList.remove('form-animation');
+            loginForm.style.transform = 'scale(1)';
+        });
+
+        // Color Change for Links
+        const links = document.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('mouseenter', function() {
+                const randomColor = getRandomColor();
+                link.style.color = randomColor; // Change text color on hover
+            });
+
+            link.addEventListener('mouseleave', function() {
+                link.style.color = ''; // Reset text color
+            });
+        });
+
+        // Function to get a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    });
+</script>
+
+
+
+</body>
+</html>
